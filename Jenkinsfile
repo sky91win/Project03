@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                git 'https://github.com/your-user/python-demo-project.git'
+                git 'https://github.com/sky91win/Project03.git'
             }
         }
 
