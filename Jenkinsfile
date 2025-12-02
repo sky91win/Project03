@@ -17,10 +17,12 @@ pipeline {
 
         stage('Run Docker Container') {
             steps {
+                // Stop & remove old container if exists
                 sh 'docker stop python-demo-app || true'
                 sh 'docker rm python-demo-app || true'
 
-                sh 'docker run -d -p 5000:5000 --name python-demo-app python-demo-app'
+                // Run Flask app on host network so external access works
+                sh 'docker run -d --network host --name python-demo-app python-demo-app'
             }
         }
     }
